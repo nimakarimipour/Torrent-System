@@ -1,0 +1,23 @@
+
+.Body Of Run Method {
+
+System.out.println("Type \"send\" to send a sample frame.");
+        while (!s.nextLine().equals("send")) ;
+        EthernetHeader eth = new EthernetHeader(EthernetHeader.BROADCAST, iface[0].mac, IPv4Header.IP_PROTOCOL);
+        IPv4Header iph = new IPv4Header();
+        iph.setTotalLength(100);
+        iph.setSrc(iface[0].ip);
+        iph.setDest(IPv4Header.BROADCAST_IP);
+        iph.setTTL(64);
+//		iph.setProtocol(protocol);
+//		iph.setChecksum(HeaderChecksum);
+//		...
+
+        byte[] data = new byte[14 + 100];
+        System.arraycopy(eth.getData(), 0, data, 0, 14);
+        System.arraycopy(iph.getData(), 0, data, 14, iph.getData().length);
+        this.sendFrame(new Frame(114, data), 0);
+        System.out.println("Sample frame sent.");
+        s.close();
+}
+
