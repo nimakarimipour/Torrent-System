@@ -3,7 +3,7 @@
 the file SimulateMachine.java in ir.sharif.ce.partov.user is for you to place your code, do not change other .java files. you can add new .java files.
 
 ## Installation
-You need to connect your nodes to PARTOV network
+You need to connect your nodes to PARTOV network,<br />
 Change your directory to here.
 and then just run **make** to compile the code. The CF does not have any special dependency and should be compilable on most Linux systems.
 
